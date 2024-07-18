@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}DeleteBook{%endblock%}
+
+{% block content %}
+    <h2>Delete Book</h2>
+<form method="post">
+    <p>{{form.book_id.label}} {{form.book_id()}}</p>
+    {% if form.book_id.errors %}
+        {% for error in form.book_id.errors %}
+            <span>{{error}}</span>
+        {%endfor%}
+    {%endif%}
+    <p>{{form.submit()}}</p>
+    {{form.hidden_tag()}}
+</form>
+{% endblock %}

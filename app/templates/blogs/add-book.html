@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} My Blog Page {% endblock %}
+{% block content %}
+    <h3>Add Balance</h3>
+    <form method="post">
+        <p>{{form.title.label}} {{form.title()}}</p>
+        {% if form.title.errors %}
+            {% for error in form.title.errors %}
+                <span>{{error}}</span>
+            {%endfor%}
+        {%endif%}
+        <p>{{form.author.label}} {{form.author()}}</p>
+        {% if form.author.errors %}
+            {% for error in form.author.errors %}
+                <span>{{error}}</span>
+            {%endfor%}
+        {%endif%}
+        <p>{{form.page_count.label}} {{form.page_count()}}</p>
+        {% if form.page_count.errors %}
+            {% for error in form.page_count.errors %}
+                <span>{{error}}</span>
+            {%endfor%}
+        {%endif%}
+        <p>{{form.submit()}}</p>
+        {{form.hidden_tag()}}
+    </form>
+{% endblock %}
